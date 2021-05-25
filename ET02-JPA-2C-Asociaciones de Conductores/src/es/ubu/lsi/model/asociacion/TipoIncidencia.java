@@ -5,6 +5,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="TipoIncidencia")
+
+@NamedQueries({
+	@NamedQuery(name = "TipoIncidencia.findAll",
+			query = "SELECT t FROM TipoIncidencia t ORDER BY t.id"),
+})
 public class TipoIncidencia implements Serializable{
 
 	private static final long serialVersionUID = 1L;

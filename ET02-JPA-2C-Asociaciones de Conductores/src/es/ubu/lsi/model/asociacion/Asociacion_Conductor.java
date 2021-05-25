@@ -5,6 +5,11 @@ import javax.persistence.*;
 
 @Entity
 @IdClass(Asociacion_ConductorId.class)
+
+@NamedQueries({
+	@NamedQuery(name = "Asociacion_Conductor.findAll",
+			query = "SELECT a FROM Asociacion_Conductor a"),
+})
 public class Asociacion_Conductor implements Serializable{
 	
 	/**

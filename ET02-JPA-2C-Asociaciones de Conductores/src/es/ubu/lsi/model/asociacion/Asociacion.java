@@ -8,6 +8,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Asociacion")
+
+@NamedQueries({
+	@NamedQuery(name = "Asociacion.findAll",
+			query = "SELECT a FROM Asociacion a ORDER BY a.idasoc"),
+})
 public class Asociacion implements Serializable{
 
 	private static final long serialVersionUID = 1L;

@@ -8,13 +8,18 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Conductor")
+
+@NamedQueries({
+	@NamedQuery(name = "Conductor.findAll",
+			query = "SELECT f FROM Conductor f ORDER BY f.nif"),
+})
 public class Conductor implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	
 	@Id
-	private int idasoc;
+	private int nif;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -40,12 +45,12 @@ public class Conductor implements Serializable{
 	@JoinTable(name="Asociacion_Conductor", joinColumns=@JoinColumn(name="nif"), inverseJoinColumns=@JoinColumn(name="idasoc"))
 	private Set<Asociacion> asociaciones;
 
-	public int getIdasoc() {
-		return idasoc;
+	public int getNif() {
+		return nif;
 	}
 
-	public void setIdasoc(int idasoc) {
-		this.idasoc = idasoc;
+	public void setIdasoc(int nif) {
+		this.nif = nif;
 	}
 
 	public String getNombre() {
@@ -96,5 +101,16 @@ public class Conductor implements Serializable{
 		this.asociaciones = asociaciones;
 	}
 
+	public void addAsociacion(Asociacion asociacion) {
+		Asociacion_Conductor asoc = new Asociacion_Conductor();
+		
+		asoc.setIdasoc(asociacion.getIdasoc());
+		asoc.setNif(this.getNif());
+		
+	}
+	
+	public void removeAsociacion(Asociacion asociacion) {
+		
+	}
 
 }

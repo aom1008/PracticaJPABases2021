@@ -9,6 +9,12 @@ import javax.persistence.*;
 @Entity
 @IdClass(IncidenciaId.class)
 @Table(name="Incidencia")
+
+@NamedQueries({
+	@NamedQuery(name = "Incidencia.findAll",
+			query = "SELECT i FROM Incidencia i ORDER BY i.nif, i.fecha"),
+	
+})
 public class Incidencia implements Serializable{
 
 	private static final long serialVersionUID = 1L;
