@@ -65,6 +65,17 @@ public class Asociacion implements Serializable{
 	public void setConductores(Set<Conductor> conductores) {
 		this.conductores = conductores;
 	}
-	
+	public void addConductor(Conductor conductor) {
+		if (conductor != null && !getConductores().contains(conductor)) {
+			getConductores().add(conductor);
+			conductor.addAsociacion(this);
+		}
+	}
+	public void removeConductor(Conductor conductor) {
+		if (conductor != null && getConductores().contains(conductor)) {
+			getConductores().remove(conductor);
+			conductor.addAsociacion(this);
+		}
+	}
 
 }

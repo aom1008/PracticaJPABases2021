@@ -51,6 +51,7 @@ public class Incidencia implements Serializable{
 	}
 
 	public void setNif(String nif) {
+		
 		this.nif = nif;
 	}
 

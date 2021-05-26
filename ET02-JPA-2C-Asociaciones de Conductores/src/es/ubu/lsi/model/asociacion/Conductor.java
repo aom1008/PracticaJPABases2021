@@ -103,14 +103,34 @@ public class Conductor implements Serializable{
 	}
 
 	public void addAsociacion(Asociacion asociacion) {
-		Asociacion_Conductor asoc = new Asociacion_Conductor();
 		
-		asoc.setIdasoc(asociacion.getIdasoc());
-		asoc.setNif(this.getNif());
+		if (asociacion != null && !getAsociaciones().contains(asociacion)) {
+			getAsociaciones().add(asociacion);
+			asociacion.addConductor(this);
+		}
 		
 	}
 	
 	public void removeAsociacion(Asociacion asociacion) {
+		if (asociacion != null && getAsociaciones().contains(asociacion)) {
+			getAsociaciones().remove(asociacion);
+			asociacion.removeConductor(this);
+		}
+	}
+	public void addIncidencia(Incidencia incidencia) {
+		
+		if (incidencia != null && !getIncidencias().contains(incidencia)) {
+			getIncidencias().add(incidencia);
+			incidencia.setNif(this.getNif());
+		}
+		
+	}
+	public void removeIncidencia(Incidencia incidencia) {
+		
+		if (incidencia != null && getIncidencias().contains(incidencia)) {
+			getIncidencias().remove(incidencia);
+			incidencia.setNif(null);
+		}
 		
 	}
 
