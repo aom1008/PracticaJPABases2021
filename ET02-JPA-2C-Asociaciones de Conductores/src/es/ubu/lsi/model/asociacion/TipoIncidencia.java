@@ -17,17 +17,17 @@ public class TipoIncidencia implements Serializable{
 	
 	@SequenceGenerator(name="Sec_TipoInc", sequenceName="TIPOINCIDENCIA_SEQ")
 	@Id @GeneratedValue(generator="Sec_TipoInc")
-	private int id;
+	private long id;
 	
 	private String descripcion;
 	
 	private int valor;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

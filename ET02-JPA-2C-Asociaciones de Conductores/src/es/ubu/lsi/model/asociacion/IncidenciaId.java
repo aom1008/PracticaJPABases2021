@@ -14,7 +14,7 @@ public class IncidenciaId implements Serializable{
 
 	public IncidenciaId() {}
 	
-	public IncidenciaId(Date fecha, int nif) {
+	public IncidenciaId(Date fecha, String nif) {
 		this.fecha=fecha;
 		this.nif=nif;
 		
@@ -22,14 +22,14 @@ public class IncidenciaId implements Serializable{
 
 	private Date fecha;
 	
-	private int nif;
+	private String nif;
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
-		result = prime * result + nif;
+		result = prime * result + nif.hashCode();
 		return result;
 	}
 
@@ -56,7 +56,7 @@ public class IncidenciaId implements Serializable{
 		return fecha;
 	}
 
-	public int getNif() {
+	public String getNif() {
 		return nif;
 	}
 

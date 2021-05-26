@@ -12,6 +12,7 @@ import javax.persistence.*;
 @NamedQueries({
 	@NamedQuery(name = "Conductor.findAll",
 			query = "SELECT f FROM Conductor f ORDER BY f.nif"),
+
 })
 public class Conductor implements Serializable{
 
@@ -19,7 +20,7 @@ public class Conductor implements Serializable{
 	
 	
 	@Id
-	private int nif;
+	private String nif;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -38,18 +39,18 @@ public class Conductor implements Serializable{
 	})
 	private Direccion direccion;
 	
-	@OneToMany(mappedBy="nif")
+	@OneToMany(mappedBy="conductor")
 	private Set<Incidencia> incidencias;
 	
 	@ManyToMany
 	@JoinTable(name="Asociacion_Conductor", joinColumns=@JoinColumn(name="nif"), inverseJoinColumns=@JoinColumn(name="idasoc"))
 	private Set<Asociacion> asociaciones;
 
-	public int getNif() {
+	public String getNif() {
 		return nif;
 	}
 
-	public void setIdasoc(int nif) {
+	public void setIdasoc(String nif) {
 		this.nif = nif;
 	}
 

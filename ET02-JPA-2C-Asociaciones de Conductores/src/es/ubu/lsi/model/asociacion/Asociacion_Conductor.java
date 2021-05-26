@@ -21,7 +21,7 @@ public class Asociacion_Conductor implements Serializable{
 	private int idasoc;
 	
 	@Id
-	private int nif;
+	private String nif;
 
 	public int getIdasoc() {
 		return idasoc;
@@ -31,11 +31,11 @@ public class Asociacion_Conductor implements Serializable{
 		this.idasoc = idasoc;
 	}
 
-	public int getNif() {
+	public String getNif() {
 		return nif;
 	}
 
-	public void setNif(int nif) {
+	public void setNif(String nif) {
 		this.nif = nif;
 	}
 

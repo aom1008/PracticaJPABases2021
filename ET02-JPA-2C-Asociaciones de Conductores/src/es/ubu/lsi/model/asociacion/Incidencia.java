@@ -12,7 +12,7 @@ import javax.persistence.*;
 
 @NamedQueries({
 	@NamedQuery(name = "Incidencia.findAll",
-			query = "SELECT i FROM Incidencia i ORDER BY i.nif, i.fecha"),
+			query = "SELECT i FROM Incidencia i ORDER BY i.fecha"),
 	
 })
 public class Incidencia implements Serializable{
@@ -23,10 +23,13 @@ public class Incidencia implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 	
-	@Id
+	
 	@ManyToOne
 	@JoinColumn(name="nif")
-	private int nif;
+	private Conductor conductor;
+	
+	@Id
+	private String nif = conductor.getNif();
 	
 	@Column(name="anotacion")
 	private String anotacion;
@@ -43,11 +46,11 @@ public class Incidencia implements Serializable{
 		this.fecha = fecha;
 	}
 
-	public int getNif() {
+	public String getNif() {
 		return nif;
 	}
 
-	public void setNif(int nif) {
+	public void setNif(String nif) {
 		this.nif = nif;
 	}
 

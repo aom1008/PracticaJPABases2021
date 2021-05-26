@@ -12,7 +12,7 @@ public class Asociacion_ConductorId implements Serializable{
 	
 	public Asociacion_ConductorId() {}
 	
-	public Asociacion_ConductorId(int idasoc, int nif) {
+	public Asociacion_ConductorId(int idasoc, String nif) {
 		
 		this.idasoc=idasoc;
 		this.nif=nif;
@@ -21,12 +21,12 @@ public class Asociacion_ConductorId implements Serializable{
 	private int idasoc;
 	
 	
-	private int nif;
+	private String nif;
 	
 	public int getIdasoc() {
 		return idasoc;
 	}
-	public int getNif() {
+	public String getNif() {
 		return nif;
 	}
 	
@@ -35,7 +35,7 @@ public class Asociacion_ConductorId implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + idasoc;
-		result = prime * result + nif;
+		result = prime * result + nif.hashCode();
 		return result;
 	}
 	@Override
