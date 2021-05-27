@@ -23,7 +23,7 @@ public class IncidenciaId implements Serializable{
 		this.nif=nif;
 		
 	}
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	
 	private String nif;

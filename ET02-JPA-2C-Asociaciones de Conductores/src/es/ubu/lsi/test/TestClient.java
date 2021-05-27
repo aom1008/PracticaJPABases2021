@@ -98,7 +98,7 @@ public class TestClient {
 			System.out.println("Framework y servicio iniciado...");
 			
 			// consultar el ranking inicial...
-			consultarRanking(implService);
+			//consultarRanking(implService);
 			
 			// insertar nuevo tipo de incidencia
 			insertarNuevoTipoIncidencia(implService);
@@ -123,7 +123,7 @@ public class TestClient {
 			consultarNumeroConductoresConIncidenciasEnAsocQueNoExiste(implService);
 
 			// comprueba que la consulta de pistas carga todos los datos
-			consultarAsociacionesUsandoGrafo(implService);
+			//consultarAsociacionesUsandoGrafo(implService);
 
 		} catch (Exception e) { // for testing code...
 			logger.error(e.getMessage());
@@ -146,6 +146,7 @@ public class TestClient {
 		try {
 			System.out.print("Indulto del conductor...\n");
 			implService.indultar("10000000C");
+
 
 			con = pool.getConnection();
 			// Comprobar si la incidencia se ha añadido
@@ -226,11 +227,12 @@ public class TestClient {
 		try {
 			System.out.println("Insertar incidencia correcta");
 			implService.insertarIncidencia(dateformat.parse("15/05/2019 16:00"), "10000000A", 3); // 3 es moderada con 3
-																									// puntos
+																				// puntos
 			// insertamos incidencia descontando 3 puntos al conductor 10000000A que tenía 9
 			// inicialmente
 
 			con = pool.getConnection();
+																					// puntos
 
 			// Comprobar si la incidencia se ha añadido
 			st = con.createStatement();
@@ -255,6 +257,7 @@ public class TestClient {
 			"13/04/19 16:00:00,000000-30000000C-1\n" +
 			"15/05/19 16:00:00,000000-10000000A-3\n"; // nueva fila
 			// @formatter:on
+		
 	
 			if (cadenaEsperada.equals(resultado.toString())) {
 				System.out.println("\tOK incidencia bien insertada");
@@ -267,6 +270,9 @@ public class TestClient {
 			while (rs.next()) {
 				resultadoEsperadoPuntos.append(rs.getString(1));
 			}
+			
+
+			
 			String puntosEsperados = "3"; // le deberíamos descontar 3 puntos quendado 6-3 = 3 puntos.
 			if (puntosEsperados.equals(resultadoEsperadoPuntos.toString())) {
 				System.out.println("\tOK actualiza bien los puntos del conductor");

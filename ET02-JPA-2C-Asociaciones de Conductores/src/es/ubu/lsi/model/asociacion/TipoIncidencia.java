@@ -15,7 +15,7 @@ public class TipoIncidencia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
-	@SequenceGenerator(name="Sec_TipoInc", sequenceName="TIPOINCIDENCIA_SEQ")
+	@SequenceGenerator(name="Sec_TipoInc", allocationSize=1, initialValue=1 , sequenceName="TIPOINCIDENCIA_SEQ")
 	@Id @GeneratedValue(generator="Sec_TipoInc")
 	private long id;
 	

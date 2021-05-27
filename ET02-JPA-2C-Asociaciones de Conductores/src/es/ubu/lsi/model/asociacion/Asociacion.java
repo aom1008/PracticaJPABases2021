@@ -18,7 +18,7 @@ public class Asociacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private int idasoc;
+	private String idasoc;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -34,11 +34,11 @@ public class Asociacion implements Serializable{
 	@ManyToMany(mappedBy="asociaciones")
 	private Set<Conductor> conductores;
 
-	public int getIdasoc() {
+	public String getIdasoc() {
 		return idasoc;
 	}
 
-	public void setIdasoc(int idasoc) {
+	public void setIdasoc(String idasoc) {
 		this.idasoc = idasoc;
 	}
 
