@@ -1,36 +1,44 @@
 package es.ubu.lsi.model.asociacion;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 import javax.persistence.*;
 
 
 @Entity
-@IdClass(IncidenciaId.class)
 @Table(name="Incidencia")
 
 @NamedQueries({
 	@NamedQuery(name = "Incidencia.findAll",
-			query = "SELECT i FROM Incidencia i ORDER BY i.fecha"),
+			query = "SELECT i FROM Incidencia i"),
 	
 })
 public class Incidencia implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@Temporal(TemporalType.DATE)
-	private Date fecha;
+	@EmbeddedId private IncidenciaId id;
 	
 	
 	@ManyToOne
 	@JoinColumn(name="nif")
+	@MapsId("nif")
 	private Conductor conductor;
 	
-	@Id
-	private String nif = conductor.getNif();
+
 	
+
+
+	
+	public Conductor getConductor() {
+		return conductor;
+	}
+
+	public void setConductor(Conductor conductor) {
+		this.conductor = conductor;
+	}
+
 	@Column(name="anotacion")
 	private String anotacion;
 	
@@ -38,21 +46,15 @@ public class Incidencia implements Serializable{
 	@JoinColumn(name="idtipo")
 	private TipoIncidencia idtipo;
 
-	public Date getFecha() {
-		return fecha;
+
+
+	public IncidenciaId getId() {
+		return id;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-
-	public String getNif() {
-		return nif;
-	}
-
-	public void setNif(String nif) {
+	public void setId(IncidenciaId id) {
 		
-		this.nif = nif;
+		this.id = id;
 	}
 
 	public String getAnotacion() {

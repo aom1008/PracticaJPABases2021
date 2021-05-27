@@ -70,7 +70,7 @@ public class TestClient {
 	static public void init() {
 		try {
 			// Acuerdate de q la primera vez tienes que crear el .bindings con:
-			// PoolDeConexiones.reconfigurarPool();
+			//PoolDeConexiones.reconfigurarPool();
 			// Inicializacion de Pool
 			pool = PoolDeConexiones.getInstance();
 		} catch (Exception e) {

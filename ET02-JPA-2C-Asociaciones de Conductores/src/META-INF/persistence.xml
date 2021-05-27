@@ -11,6 +11,8 @@
 		<class>es.ubu.lsi.model.asociacion.Incidencia</class>
 		<class>es.ubu.lsi.model.asociacion.TipoIncidencia</class>
 		<class>es.ubu.lsi.model.asociacion.Asociacion_Conductor</class>
+		<class>es.ubu.lsi.model.asociacion.IncidenciaId</class>
+		<class>es.ubu.lsi.model.asociacion.Asociacion_ConductorId</class>
 		
 		<!-- Eclipse Link provider (other provider) -->
 		<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->

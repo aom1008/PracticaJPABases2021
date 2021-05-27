@@ -121,7 +121,7 @@ public class Conductor implements Serializable{
 		
 		if (incidencia != null && !getIncidencias().contains(incidencia)) {
 			getIncidencias().add(incidencia);
-			incidencia.setNif(this.getNif());
+			incidencia.setConductor(this);
 		}
 		
 	}
@@ -129,7 +129,7 @@ public class Conductor implements Serializable{
 		
 		if (incidencia != null && getIncidencias().contains(incidencia)) {
 			getIncidencias().remove(incidencia);
-			incidencia.setNif(null);
+			incidencia.setConductor(null);
 		}
 		
 	}

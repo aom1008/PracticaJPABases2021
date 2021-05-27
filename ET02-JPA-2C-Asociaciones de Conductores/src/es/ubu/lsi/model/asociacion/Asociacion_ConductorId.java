@@ -2,7 +2,9 @@ package es.ubu.lsi.model.asociacion;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class Asociacion_ConductorId implements Serializable{
 	
 	/**

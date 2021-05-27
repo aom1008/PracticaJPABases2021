@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@IdClass(Asociacion_ConductorId.class)
+
 
 @NamedQueries({
 	@NamedQuery(name = "Asociacion_Conductor.findAll",
@@ -17,26 +17,17 @@ public class Asociacion_Conductor implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private int idasoc;
-	
-	@Id
-	private String nif;
+	@EmbeddedId
+	private Asociacion_ConductorId id;
 
-	public int getIdasoc() {
-		return idasoc;
+	public Asociacion_ConductorId getId() {
+		return id;
 	}
 
-	public void setIdasoc(int idasoc) {
-		this.idasoc = idasoc;
+	public void setIdasoc(Asociacion_ConductorId idasoc) {
+		this.id = idasoc;
 	}
 
-	public String getNif() {
-		return nif;
-	}
 
-	public void setNif(String nif) {
-		this.nif = nif;
-	}
 
 }

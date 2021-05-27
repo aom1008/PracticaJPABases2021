@@ -3,8 +3,12 @@ package es.ubu.lsi.model.asociacion;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
+@Embeddable
 public class IncidenciaId implements Serializable{
 	
 	/**
@@ -19,7 +23,7 @@ public class IncidenciaId implements Serializable{
 		this.nif=nif;
 		
 	}
-
+	@Temporal(TemporalType.DATE)
 	private Date fecha;
 	
 	private String nif;
