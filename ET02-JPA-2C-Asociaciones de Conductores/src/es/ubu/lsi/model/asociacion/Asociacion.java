@@ -13,6 +13,18 @@ import javax.persistence.*;
 	@NamedQuery(name = "Asociacion.findAll",
 			query = "SELECT a FROM Asociacion a ORDER BY a.idasoc"),
 })
+
+@NamedEntityGraph(name = "asociacionesConConductoresIncidencias",
+				  attributeNodes =  {
+						  @NamedAttributeNode(value="conductores", subgraph = "conductoresIncidencias")
+				  },
+				    subgraphs = {
+				    		@NamedSubgraph(
+				    				name="conductoresIncidencias",
+				    				attributeNodes = {
+				    						@NamedAttributeNode("incidencias")
+				    				})
+				    })
 public class Asociacion implements Serializable{
 
 	private static final long serialVersionUID = 1L;

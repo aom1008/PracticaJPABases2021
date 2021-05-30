@@ -1,6 +1,8 @@
 package es.ubu.lsi.model.asociacion;
 
 import java.io.Serializable;
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,17 @@ public class TipoIncidencia implements Serializable{
 	private String descripcion;
 	
 	private int valor;
+
+	@OneToMany(mappedBy="idtipo")
+	private Set<Incidencia> incidencias;
+	
+	public Set<Incidencia> getIncidencias() {
+		return incidencias;
+	}
+
+	public void setIncidencias(Set<Incidencia> incidencias) {
+		this.incidencias = incidencias;
+	}
 
 	public long getId() {
 		return id;
