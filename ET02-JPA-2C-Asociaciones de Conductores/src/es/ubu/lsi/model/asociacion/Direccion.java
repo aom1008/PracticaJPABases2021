@@ -44,4 +44,8 @@ public class Direccion implements Serializable{
 		this.ciudad = ciudad;
 	}
 
+	@Override
+	public String toString() {
+		return "DireccionPostal [ direccion = " + calle + ", codigoPostal = " + codigoPostal + ", ciudad = " + ciudad + "]"; 
+	}
 }

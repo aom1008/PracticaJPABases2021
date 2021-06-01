@@ -74,7 +74,10 @@ public class Incidencia implements Serializable{
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "Incidencia [ id = " + id.toString() + ", anotacion = " + anotacion + ", conductor = " + conductor.toString() +  ", tipoIncidencia = "+ idtipo.toString() +" ]";
+	}
 	
 
 }

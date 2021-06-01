@@ -136,7 +136,7 @@ public class Conductor implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Conductor: nif = " + nif + "  nombre = " + nombre + "  apellido = " + apellido;
+		return "Conductor [nif = " + nif + ",  nombre = " + nombre + "  apellido = " + apellido + ", direccion postal = " + direccion.toString() + ", puntos = " + puntos + " ]";
 	}
 
 }

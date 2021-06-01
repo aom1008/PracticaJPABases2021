@@ -372,9 +372,9 @@ public class TestClient {
 		try {
 			// Ranking que se espera
 			List<TipoIncidenciaRanking> tipoIncidenciaRankingEsperado = new ArrayList<>();
+			tipoIncidenciaRankingEsperado.add(new TipoIncidenciaRanking("Leve", 0));
 			tipoIncidenciaRankingEsperado.add(new TipoIncidenciaRanking("Muy grave", 1));
 			tipoIncidenciaRankingEsperado.add(new TipoIncidenciaRanking("Moderada", 3));
-			tipoIncidenciaRankingEsperado.add(new TipoIncidenciaRanking("Leve", 0));
 			tipoIncidenciaRankingEsperado.add(new TipoIncidenciaRanking("Grave", 5));	
 
 
@@ -389,6 +389,7 @@ public class TestClient {
 				} else {
 					System.out.println(
 							"\tERROR NO concide el ranking en valores o en orden, devuelve:\n " + tipoIncidencias.toString());
+					System.out.println("\tDeberia devolver:\n " + tipoIncidenciaRankingEsperado.toString());
 				}
 			} else {
 				System.out.println("\tERROR número de elementos en el ranking incorrecto: " + tipoIncidencias.size());

@@ -64,4 +64,8 @@ public class IncidenciaId implements Serializable{
 		return nif;
 	}
 
+	@Override
+	public String toString() {
+		return "incidenciaPk [ fecha = " + fecha + ", nif = " + nif + " ]";
+	}
 }

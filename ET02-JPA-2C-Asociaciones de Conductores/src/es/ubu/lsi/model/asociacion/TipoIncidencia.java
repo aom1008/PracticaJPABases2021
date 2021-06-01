@@ -60,5 +60,9 @@ public class TipoIncidencia implements Serializable{
 		this.valor = valor;
 	}
 	
+	@Override
+	public String toString() {
+		return "TipoIncidencia [ id = " + id + ", descripcion = " + descripcion + ", valor = " + valor +" ]";
+	}
 
 }

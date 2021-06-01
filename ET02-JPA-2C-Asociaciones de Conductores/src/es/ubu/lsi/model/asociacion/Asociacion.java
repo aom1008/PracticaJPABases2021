@@ -22,7 +22,12 @@ import javax.persistence.*;
 				    		@NamedSubgraph(
 				    				name="conductoresIncidencias",
 				    				attributeNodes = {
-				    						@NamedAttributeNode("incidencias")
+				    						@NamedAttributeNode(value = "incidencias", subgraph = "tipoIncidencia")
+				    				}),
+				    		@NamedSubgraph(
+				    				name="tipoIncidencia",
+				    				attributeNodes = {
+				    						@NamedAttributeNode("idtipo")
 				    				})
 				    })
 public class Asociacion implements Serializable{
@@ -90,4 +95,8 @@ public class Asociacion implements Serializable{
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "Asociacion [ idAsoc = " + idasoc + ", nombre = " + nombre + ", direccionPostal = " + direccion.toString() + " ]";
+	}
 }
